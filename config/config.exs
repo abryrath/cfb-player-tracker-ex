@@ -3,7 +3,7 @@ use Mix.Config
 config :p_tracker, :ecto_repos, [PTracker.Repo]
 
 config :p_tracker, PTracker.Repo,
-  username: "abry",
+  username: "abryrath",
   database: "dev_player_tracker",
   hostname: "localhost"
 

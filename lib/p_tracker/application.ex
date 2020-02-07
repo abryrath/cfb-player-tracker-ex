@@ -7,7 +7,8 @@ defmodule PTracker.Application do
 
   def start(_type, _args) do
     children = [
-      PTracker.Repo
+      PTracker.Repo,
+      Crawler.Supervisor,
       # Starts a worker by calling: PTracker.Worker.start_link(arg)
       # {PTracker.Worker, arg}
     ]
