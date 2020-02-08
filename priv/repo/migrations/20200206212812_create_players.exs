@@ -8,5 +8,7 @@ defmodule PTracker.Repo.Migrations.CreatePlayers do
       add :position, :string
       add :number, :integer
     end
+
+    create index(:players, [:first_name, :last_name], unique: true)
   end
 end

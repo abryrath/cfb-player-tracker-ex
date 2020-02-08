@@ -5,5 +5,7 @@ defmodule PTracker.Repo.Migrations.CreateUniversities do
     create table(:universities) do
       add :title, :string, null: false
     end
+
+    create index("universities", [:title], unique: true)
   end
 end

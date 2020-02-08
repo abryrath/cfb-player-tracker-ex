@@ -9,5 +9,7 @@ defmodule PTracker.Repo.Migrations.CreateNflTeams do
       add :primary_color, :string
       add :secondary_color, :string
     end
+
+    create index(:nfl_teams, [:name], unique: true)
   end
 end

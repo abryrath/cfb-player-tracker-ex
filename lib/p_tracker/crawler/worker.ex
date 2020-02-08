@@ -1,4 +1,4 @@
-defmodule Crawler.Worker do
+defmodule PTracker.Crawler.Worker do
   use GenServer
 
   def start_link(_) do

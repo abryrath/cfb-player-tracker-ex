@@ -1,4 +1,4 @@
-defmodule Crawler.Supervisor do
+defmodule PTracker.Crawler do
   use Supervisor
 
   @num_workers 5
@@ -9,10 +9,11 @@ defmodule Crawler.Supervisor do
 
   @impl true
   def init(:ok) do
+    IO.puts "Starting #{__MODULE__}"
     children = [
-      {Crawler.Registry, name: Crawler.Registry},
+      #  PTracker.Crawler.Registry, name: PTracker.Crawler.Registry},
       :poolboy.child_spec(:worker, poolboy_config()),
-      Crawler.Starter
+      # PTracker.Crawler.Starter
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
@@ -21,7 +22,7 @@ defmodule Crawler.Supervisor do
   defp poolboy_config do
     [
       name: {:local, :worker},
-      worker_module: Crawler.Worker,
+      worker_module: PTracker.Crawler.Worker,
       size: @num_workers,
       max_overflow: 2
     ]
