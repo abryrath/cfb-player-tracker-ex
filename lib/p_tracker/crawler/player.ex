@@ -1,9 +1,9 @@
 defmodule PTracker.Crawler.Player do
-  @timeout 60_000
+  @timeout 600_000
 
   def start(urls) do
     urls
-    |> Enum.take(20)
+    # |> Enum.take(1)
     |> Enum.map(&async_call(&1))
     |> Enum.each(&await_and_store(&1))
   end

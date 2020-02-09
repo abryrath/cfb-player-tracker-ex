@@ -12,5 +12,7 @@ defmodule PTracker.University do
     uni
     |> cast(params, [:title])
     |> validate_required([:title])
+    |> validate_length(:title, min: 3)
+    |> unique_constraint(:title)
   end
 end

@@ -15,6 +15,9 @@ defmodule PTracker.NflTeam do
   def changeset(team, params) do
     team
     |> cast(params, [:name, :region, :logo_img_url, :primary_color, :secondary_color])
-    |> validate_required([:name])
+    |> validate_required([:name, :region])
+    |> validate_length(:name, min: 4)
+    |> validate_length(:region, min: 4)
+    |> unique_constraint(:name)
   end
 end
