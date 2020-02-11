@@ -9,6 +9,7 @@ defmodule PTracker.Application do
     children = [
       PTracker.Repo,
       PTracker.Crawler.Manager,
+      {Plug.Cowboy, scheme: :http, plug: PTracker.Api.Router, options: [port: 4001]}
       # Starts a worker by calling: PTracker.Worker.start_link(arg)
       # {PTracker.Worker, arg}
     ]
