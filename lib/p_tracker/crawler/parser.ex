@@ -61,8 +61,11 @@ defmodule PTracker.Crawler.Parser do
       |> Enum.filter(fn n -> n != "" end)
       |> List.first()
 
-    # IO.inspect(team)
-    team
+    if is_nil(team) do
+      %{region: "N/A", name: "N/A"}
+    else
+      team
+    end
   end
 
   defp match_team({"p", [{"class", "player-team-links"}], team_link}) do

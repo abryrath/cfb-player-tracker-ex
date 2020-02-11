@@ -16,9 +16,8 @@ defmodule PTracker.Player do
     player
     |> cast(params, [:first_name, :last_name, :position, :number])
     |> validate_required([:first_name, :last_name])
-    |> cast_assoc(:universities)
-    |> cast_assoc(:nfl_team)
-
-    # |> unique_constraint([:first_name, :last_name])
+    # |> cast_assoc](:universities)
+    # |> cast_assoc(:nfl_team)
+    |> unique_constraint(:last_name, name: :players_first_name_last_name_index)
   end
 end
